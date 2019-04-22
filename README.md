@@ -1,8 +1,8 @@
-# RSK Name Service
+# RIF Name Service
 
-Implementation for Registry, Registrar, Deed and Resolver for the RSK Name Service
+Implementation for Registry, Registrar, Deed and Resolver for the RIF Name Service
 
-For more information see the [documentation](https://docs.rns.rsk.co).
+For more information see the [documentation](https://docs.rns.rifos.org).
 
 ## Install Truffle
 
