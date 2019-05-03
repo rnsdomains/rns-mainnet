@@ -4,6 +4,17 @@ Implementation for Registry, Registrar, Deed and Resolver for the RIF Name Servi
 
 For more information see the [documentation](https://docs.rns.rifos.org).
 
+## Mainnet deployment information
+
+- **Address**: [`0xcb868aeabd31e2b66f74e9a55cf064abb31a4ad5`](http://explorer.rsk.co/address/0xcb868aeabd31e2b66f74e9a55cf064abb31a4ad5)
+- **ABI**: [RNSABI.json](/Architecture/RNSABI.json)
+
+Details of the [registrar](http://docs.rns.rifos.org/Architecture/Registry/) in the [documentation site](https://docs.rns.rifos.org).
+
+## Testnet deployment information
+
+See [RNS Testnet documentation section](http://docs.rns.rifos.org/RNS-Testnet/) for testing environment variants and information.
+
 ## Install Truffle
 
 ```
