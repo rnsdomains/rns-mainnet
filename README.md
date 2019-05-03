@@ -9,7 +9,7 @@ For more information see the [documentation](https://docs.rns.rifos.org).
 - **Address**: [`0xcb868aeabd31e2b66f74e9a55cf064abb31a4ad5`](http://explorer.rsk.co/address/0xcb868aeabd31e2b66f74e9a55cf064abb31a4ad5)
 - **ABI**: [RNSABI.json](/Architecture/RNSABI.json)
 
-Details of the [registrar](http://docs.rns.rifos.org/Architecture/Registry/) in the [documentation site](https://docs.rns.rifos.org).
+Details of the [registry](http://docs.rns.rifos.org/Architecture/Registry/) in the [documentation site](https://docs.rns.rifos.org).
 
 ## Testnet deployment information
 
