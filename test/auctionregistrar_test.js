@@ -35,9 +35,9 @@ for (const key in contexts) {
         beforeEach(async function() {
             await utils.resetNode();
             
-            tokenContract = await ERC677TokenContract.new(accounts[0], TOTAL_SUPPLY, { from: accounts[0], gas: 6500000, gasPrice: 1000000 });
+            tokenContract = await ERC677TokenContract.new(accounts[0], TOTAL_SUPPLY, { from: accounts[0] });
 
-            rns = await RNS.new({ gas: 4700000 });
+            rns = await RNS.new();
 
             publicResolver = await PublicResolver.new(rns.address, { from: accounts[0] });
             await rns.setDefaultResolver(publicResolver.address, { from: accounts[0] });
@@ -1685,5 +1685,55 @@ for (const key in contexts) {
                 await rns.setDefaultResolver("0x12345", { from: accounts[1] });
             });
         });
+
+        it('starts multiple auctions', async function() {
+            await registrar.startAuction(web3.sha3('name'));
+
+            let hashes = [web3.sha3('name1'), web3.sha3('name2'), web3.sha3('name3')];
+
+            for (let h of hashes) {
+                var result = await registrar.entries(h);
+
+                assert.equal(result[0], 0); // status == Open
+            }
+
+            await registrar.startAuctions(hashes);
+
+            for (let h of hashes) {
+                var result = await registrar.entries(h);
+
+                assert.equal(result[0], 1); // status == Auction
+            }
+
+            await utils.increaseTime(utils.days(5) + 1);
+
+            for (let h of hashes) {
+                var result = await registrar.entries(h);
+
+                assert.equal(result[0], 0); // status == Open
+            }
+        });
+
+        if (contextDescription == "ERC20 token") {
+            it('starts and bids', async function() {
+                let hashes = [web3.sha3('name'), web3.sha3('anothername')]
+
+                const bid = { account: accounts[0], value: utils.toTokens(1), deposit: utils.toTokens(1), salt: 0 }
+                bid.sealedBid = await registrar.shaBid(web3.sha3('name'), bid.account, bid.value, bid.salt);
+
+                await tokenContract.approve(registrar.address, bid.deposit, { from: bid.account });
+
+                await registrar.startAuctionsAndBid(hashes, bid.sealedBid, bid.deposit, { from: bid.account });
+
+                for (let h of hashes) {
+                    let result = await registrar.entries(h);
+
+                    assert.equal(result[0], 1);
+                }
+
+                let deedAddr = await registrar.sealedBids(bid.account, bid.sealedBid);
+                console.log(deedAddr);
+            });
+        }
     });
 }
