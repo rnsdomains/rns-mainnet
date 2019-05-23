@@ -98,7 +98,7 @@ For more information see [RNS Docs](https://docs.rns.rsk.co)
 ## Related links
 
 - [RSK](https://rsk.co)
-    - [Docs](https://github.com/rsksmart/rskj/wiki)
+    - [Docs](https://docs.rsk.co)
 - [RIF](https://rifos.org)
     - [Docs](https://www.rifos.org/documentation/)
     - [Whitepaper](https://docs.rifos.org/rif-whitepaper-en.pdf)
