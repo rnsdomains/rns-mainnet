@@ -4,6 +4,8 @@
 
 Implementation for Registry, Registrar, Deed and Resolver for the RIF Name Service
 
+**The implementaiton found here is the actual implementation deployed on RSK MainNet. RSK Registrar and resolvers might change over time but RNS Registry will not ever change.**
+
 For more information see the [documentation](https://docs.rns.rifos.org).
 
 ## Mainnet deployment
